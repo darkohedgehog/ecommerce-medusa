@@ -52,12 +52,6 @@ const plugins = [
       },
     },
   },
-  {
-    resolve: 'medusa-plugin-category-images',
-    options: {
-      enableUI: true,
-    },
-  },
 ];
 
 const modules = {

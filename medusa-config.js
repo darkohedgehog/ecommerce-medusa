@@ -52,6 +52,7 @@ const plugins = [
       },
     },
   },
+  
   {
     resolve: `medusa-plugin-algolia`,
     options: {
@@ -68,17 +69,24 @@ const plugins = [
               "handle",
               "thumbnail",
               "variants",
-              "variant_sku",
               "options",
               "collection_title",
               "collection_handle",
-              "images",
+              
             ],
           },
           transformer: (product) => ({
             objectID: product.id,
-            //other attributes
+            title: product.title,
+            description: product.description,
+            handle: product.handle,
+            thumbnail: product.thumbnail,
+            variants: product.variants,
+            options: product.options,
+            collection_title: product.collection.title,
+            collection_handle: product.collection.handle,
           })
+          
         }
       },
     },

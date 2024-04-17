@@ -61,30 +61,17 @@ const plugins = [
       settings: {
         indexName: {
           indexSettings: {
-            searchableAttributes: ["title", "description"],
+            searchableAttributes: ["title"],
             attributesToRetrieve: [
               "id",
               "title",
-              "description",
-              "handle",
-              "thumbnail",
-              "variants",
-              "options",
-              "collection_title",
-              "collection_handle",
               
             ],
           },
           transformer: (product) => ({
             objectID: product.id,
             title: product.title,
-            description: product.description,
-            handle: product.handle,
-            thumbnail: product.thumbnail,
-            variants: product.variants,
-            options: product.options,
-            collection_title: product.collection.title,
-            collection_handle: product.collection.handle,
+           
           })
           
         }
@@ -98,12 +85,6 @@ const plugins = [
       from: process.env.SENDGRID_FROM,
       order_placed_template: 
         process.env.SENDGRID_ORDER_PLACED_ID,
-      localization: {
-        "hr-HR": { // locale key
-          order_placed_template:
-            process.env.SENDGRID_ORDER_PLACED_ID_LOCALIZED,
-        },
-      },
     },
   },
 
